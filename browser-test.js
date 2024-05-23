@@ -31,6 +31,7 @@ export default async function () {
     const submitButton = page.locator('input[type="submit"]')
 
     await Promise.all([page.waitForNavigation(), submitButton.click()])
+    page.screenshot({ path: 'screenshots/screenshot.png' });
 
     check(page, {
       header: (p) => p.locator('h2').textContent() === 'Welcome, admin!',
